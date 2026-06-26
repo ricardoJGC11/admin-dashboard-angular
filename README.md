@@ -1,59 +1,116 @@
-# AdminDashboardAngular
+# AdminDashboard - Angular Engine
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.4.
+**AdminDashboard** es un panel de administración desarrollado en **Angular 19+** con **TypeScript**. La aplicación utiliza una arquitectura basada en componentes y servicios para consumir datos desde una API REST y mostrarlos de forma dinámica en una interfaz moderna. Además, está configurada en modo **Zoneless** para optimizar el rendimiento de la aplicación.
 
-## Development server
+---
 
-To start a local development server, run:
+## Tecnologías utilizadas
+
+- Angular 19+
+- TypeScript 5+
+- Node.js
+- npm
+- RxJS
+- HTML5
+- CSS3
+
+---
+
+## Arquitectura del proyecto
+
+El proyecto está organizado de la siguiente manera:
+
+```text
+src/
+└── app/
+    ├── models/        # Interfaces de TypeScript
+    ├── services/      # Servicios HTTP
+    ├── app.html       # Vista principal
+    ├── app.ts         # Componente principal
+    └── app.config.ts  # Configuración de la aplicación
+```
+
+### Descripción de cada componente
+
+- **models:** contiene las interfaces (`Usuario` y `Tarea`) utilizadas para tipar la información recibida desde la API.
+- **services:** centraliza las peticiones HTTP utilizando `HttpClient` y `Observables`.
+- **app.html:** muestra la información mediante renderizado dinámico con directivas como `*ngIf` y `*ngFor`.
+- **app.ts:** administra la lógica principal de la aplicación, carga los datos y controla el ciclo de vida del componente.
+- **app.config.ts:** contiene la configuración general del proyecto, incluyendo la configuración Zoneless.
+
+---
+
+## Consumo de la API
+
+La aplicación obtiene información desde la API pública **JSONPlaceholder**, utilizando los siguientes recursos:
+
+- **Usuarios:** muestra el listado de usuarios registrados.
+- **Tareas (Todos):** presenta una lista de tareas con su estado de completado.
+
+---
+
+## Requisitos
+
+Antes de ejecutar el proyecto asegúrate de tener instalado:
+
+- Node.js 18 o superior
+- npm
+- Angular CLI
+- Git (opcional para clonar el repositorio)
+
+---
+
+## Instalación
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/ricardoJGC11/admin-dashboard-angular.git
+cd admin-dashboard-angular
+```
+
+### 2. Instalar las dependencias
+
+```bash
+npm install
+```
+
+---
+
+### 3. Ejecutar el servidor de desarrollo
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+### 4. Acceder a la aplicación
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Abre tu navegador y visita:
 
-```bash
-ng generate component component-name
+```text
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+La aplicación se actualizará automáticamente al realizar cambios en el código (Hot Reload).
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Características
 
-To build the project run:
+- Arquitectura basada en componentes Standalone.
+- Configuración Zoneless para mejorar el rendimiento.
+- Tipado estricto mediante interfaces de TypeScript.
+- Consumo de API REST utilizando `HttpClient` y `Observables`.
+- Renderizado dinámico con Angular.
+- Interfaz limpia y reactiva.
+- Organización modular para facilitar el mantenimiento y la escalabilidad.
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Autor
 
-## Running unit tests
+**Ricardo JGC**
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+GitHub: https://github.com/ricardoJGC11
