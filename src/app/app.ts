@@ -39,4 +39,19 @@ export class App implements OnInit {
       error: (err) => console.error('Error al traer tareas:', err)
     });
   }
+  // INTERACTIVIDAD: Método analítico para alternar el estado de una tarea
+  public alternarEstadoTarea(idTarea: number): void {
+    // Buscamos la tarea dentro de nuestro arreglo en memoria usando lógica deductiva
+    this.listaTareas = this.listaTareas.map(tarea => {
+      if (tarea.id === idTarea) {
+        // Retornamos el objeto clonado pero invirtiendo el booleano 'completed'
+        return { ...tarea, completed: !tarea.completed };
+      }
+      return tarea;
+    });
+    this.cdr.detectChanges();
+  }
+  public obtenerTareasCompletadasCount(): number {
+  return this.listaTareas.filter(t => t.completed).length;
+}
 }

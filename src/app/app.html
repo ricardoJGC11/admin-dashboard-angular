@@ -20,7 +20,9 @@
 
       <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); flex: 1; border-left: 5px solid #10b981;">
         <h3 style="margin: 0; color: #64748b; font-size: 14px; text-transform: uppercase;">Tareas Analizadas</h3>
-        <p style="margin: 10px 0 0 0; font-size: 32px; font-weight: bold; color: #1e293b;">{{ listaTareas.length }}</p>
+        <p style="margin: 10px 0 0 0; font-size: 32px; font-weight: bold; color: #1e293b;">
+          {{ obtenerTareasCompletadasCount() }}
+        </p>
       </div>
 
     </section>
@@ -41,9 +43,11 @@
             <td style="padding: 12px; font-weight: bold; color: #64748b;">#{{ tarea.id }}</td>
             <td style="padding: 12px; color: #334155;">{{ tarea.title }}</td>
             <td style="padding: 12px; text-align: center;">
-              <span [style.background-color]="tarea.completed ? '#d1fae5' : '#fee2e2'"
-                    [style.color]="tarea.completed ? '#065f46' : '#991b1b'"
-                    style="padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold;">
+              <span (click)="alternarEstadoTarea(tarea.id)"
+                [style.background-color]="tarea.completed ? '#d1fae5' : '#fee2e2'"
+                [style.color]="tarea.completed ? '#065f46' : '#991b1b'"
+                style="padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; user-select: none;"
+                title="Haz clic para cambiar estado">
                 {{ tarea.completed ? '✅ Completada' : '⏳ Pendiente' }}
               </span>
             </td>
